@@ -1,0 +1,11 @@
+version: "3"
+services:
+  postgresql:
+    container_name: postgre-alpine
+    image: postgres:alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=spring_postgre
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123qwe
