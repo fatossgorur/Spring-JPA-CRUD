@@ -23,12 +23,38 @@ public class ArticleService {
         }
     }
 
-    public Optional<Article> getArticle(String id){
-        try{
+    public Optional<Article> getArticle(String id) {
+        try {
             return articleRepository.findById(id);
-        }catch (Exception e){
+        } catch (Exception e) {
             return Optional.empty();
         }
+    }
 
+    public Optional<Article> updateTitle(String id, String title) {
+        try {
+            articleRepository.updateTitle(id, title);
+            return articleRepository.findById(id);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
+    public Optional<Article> updateContent(String id, String content) {
+        try {
+            articleRepository.updateContent(id, content);
+            return articleRepository.findById(id);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
+    public Boolean deleteArticle(String id) {
+        try {
+            articleRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
