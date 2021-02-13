@@ -19,9 +19,13 @@ public class Article {
     private String title;
 
     private String content;
+
     @CreatedDate
+    @Column(name = "create_date")
     private Date createDate;
+
     @LastModifiedDate
+    @Column(name = "update_date")
     private Date updateDate;
 
     public Article() {
